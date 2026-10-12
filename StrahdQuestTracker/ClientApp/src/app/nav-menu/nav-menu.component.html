@@ -1,0 +1,29 @@
+<div class="top-row ps-3 navbar navbar-dark">
+  <div class="container-fluid">
+    <a class="navbar-brand" routerLink="/">StrahdQuestTracker</a>
+  </div>
+</div>
+
+<input type="checkbox" title="Navigation menu" class="navbar-toggler" [checked]="isExpanded" (change)="toggle()"/>
+
+<div class="nav-scrollable" [class.collapse]="!isExpanded" (click)="collapseNavMenu()">
+  <nav class="nav flex-column">
+    <div class="nav-item px-3">
+      <a class="nav-link" routerLink="/" [routerLinkActiveOptions]="{ exact: true }" routerLinkActive="active">
+        <span class="bi bi-house-door-fill-nav-menu" aria-hidden="true"></span> Home
+      </a>
+    </div>
+
+    <div class="nav-item px-3">
+      <a class="nav-link" routerLink="/counter" routerLinkActive="active">
+        <span class="bi bi-plus-square-fill-nav-menu" aria-hidden="true"></span> Counter
+      </a>
+    </div>
+
+    <div class="nav-item px-3">
+      <a class="nav-link" routerLink="/weather" routerLinkActive="active">
+        <span class="bi bi-list-nested-nav-menu" aria-hidden="true"></span> Weather
+      </a>
+    </div>
+  </nav>
+</div>
