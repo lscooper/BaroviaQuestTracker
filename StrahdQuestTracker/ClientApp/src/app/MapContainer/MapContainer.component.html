@@ -1,0 +1,11 @@
+<app-map
+  [imageUrl]="'https://64.media.tumblr.com/90a3ec5bb68338af6653de8fd37faa16/0244245c0a49baf5-64/s1280x1920/952b44cc655c61e23e913511dcc140a3bb4f789d.png'"
+  [rows]="200"
+  [columns]="300"
+  (cellSelected)="onCellSelected($event)"
+/>
+
+<p *ngIf="selection">
+  Selected row: {{ selection.row }},
+  column: {{ selection.column }}
+</p>

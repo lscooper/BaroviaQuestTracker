@@ -1,0 +1,35 @@
+
+<div class="image-container">
+  <img
+    ngSrc="https://64.media.tumblr.com/90a3ec5bb68338af6653de8fd37faa16/0244245c0a49baf5-64/s1280x1920/952b44cc655c61e23e913511dcc140a3bb4f789d.png"
+    alt="Selectable image"
+    class="target-image"
+    width="1920"
+    height="1080"
+  />
+
+  <div
+    class="target-grid"
+    [style.grid-template-rows]="
+      'repeat(' + rowIndices.length + ', minmax(0, 1fr))'
+    "
+    [style.grid-template-columns]="
+      'repeat(' + columnIndices.length + ', minmax(0, 1fr))'
+    "
+  >
+    <ng-container *ngFor="let row of rowIndices">
+      <ng-container *ngFor="let column of columnIndices">
+        <button
+          type="button"
+          class="target-cell"
+          [class.selected]="isSelected(row, column)"
+          [attr.aria-label]="'Row ' + row + ', Column ' + column"
+          [attr.aria-pressed]="isSelected(row, column)"
+          (click)="selectCell(row, column)"
+        >
+          <span>{{ row }}, {{ column }}</span>
+        </button>
+      </ng-container>
+    </ng-container>
+  </div>
+</div>

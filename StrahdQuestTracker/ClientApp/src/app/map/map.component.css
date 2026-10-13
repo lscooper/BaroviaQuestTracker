@@ -1,0 +1,47 @@
+
+.image-container {
+  position: relative;
+  width: 100%;
+  line-height: 0;
+}
+
+.target-image {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.target-grid {
+  position: absolute;
+  inset: 0;
+  display: grid;
+}
+
+.target-cell {
+  min-width: 0;
+  min-height: 0;
+  padding: 0;
+  border: 1px solid rgb(255 255 255 / 55%);
+  background: rgb(0 0 0 / 5%);
+  color: white;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: normal;
+  font: inherit;
+  font-size: 12px;
+}
+
+.target-cell span {
+  opacity: 0;
+  background: rgb(0 0 0 / 65%);
+  padding: 4px 6px;
+  border-radius: 4px;
+}
+
+
+.target-cell.selected {
+  background: rgb(37 99 235 / 45%);
+  border: 2px solid #2563eb;
+}

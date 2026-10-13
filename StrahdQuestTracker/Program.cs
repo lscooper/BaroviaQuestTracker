@@ -44,10 +44,33 @@ app.MapGet("/weatherforecast", () =>
         .ToArray();
     return forecast;
 });
+app.MapPost(
+    "/api/image-selections",
+    (ImageGridSelection selection) =>
+    {
+        if (selection.Row < 1 || selection.Column < 1)
+        {
+            return Results.BadRequest(
+                "Row and column must be positive.");
+        }
+        Console.WriteLine("Selected point at row "  + selection.Row + " column " + selection.Column);
+        // Process or persist the selection here.
+
+        return Results.Ok(new
+        {
+            selection.Row,
+            selection.Column
+        });
+    });
 
 app.MapFallbackToFile("index.html");
 
 app.Run();
+
+public record ImageGridSelection(
+    int Row,
+    int Column
+);
 
 record WeatherForecast(DateOnly Date, int TemperatureC, string? Summary)
 {
